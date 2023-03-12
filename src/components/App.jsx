@@ -1,6 +1,5 @@
-
-
-import Feedback from "./Feedback/Feedback";
+// import Feedback from './Feedback/Feedback';
+import FeedbackHook from './Feedback/Feedback';
 
 export const App = () => {
   return (
@@ -11,10 +10,11 @@ export const App = () => {
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
-        color: '#010101'
+        color: '#010101',
       }}
     >
-      <Feedback />
+      {/* <Feedback /> */}
+      <FeedbackHook />
     </div>
   );
 };
