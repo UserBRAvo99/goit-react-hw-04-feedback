@@ -27,7 +27,7 @@ export default function FeedbackHook() {
 
   useEffect(() => {
     totalFeedback(Number(good), Number(neutral), Number(bad));
-  });
+  }, [good, neutral, bad]);
 
   const options = ['good', 'neutral', 'bad'];
 

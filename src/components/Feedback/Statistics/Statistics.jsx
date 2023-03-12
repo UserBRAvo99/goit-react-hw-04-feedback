@@ -3,7 +3,6 @@ import React from 'react';
 import scss from './statistics.module.scss';
 
 function Statistics({ good, neutral, bad, total, positiveFeedback }) {
-  console.log(good, neutral, bad, total);
   return (
     <ul className={scss.list}>
       <li className={scss.item}>
