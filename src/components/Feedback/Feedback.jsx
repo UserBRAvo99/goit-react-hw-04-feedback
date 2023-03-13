@@ -13,7 +13,16 @@ export default function FeedbackHook() {
   const [bad, setBad] = useState(0);
   const [total, setTotal] = useState(0);
 
+  // const mapState = {
+  //   good: setGood,
+  //   neutral: setNeutral,
+  //   bad: setBad,
+  // };
+
   const handleBtnClick = event => {
+    // const { name } = event.target;
+    // mapState[name](prevState => prevState + 1);
+
     const { name } = event.target;
 
     // if (name === 'good') {
@@ -23,6 +32,7 @@ export default function FeedbackHook() {
     // } else if (name === 'bad') {
     //   setBad(state => state + 1);
     // }
+
     switch (name) {
       case 'good':
         setGood(prevState => prevState + 1);
@@ -33,7 +43,6 @@ export default function FeedbackHook() {
       case 'bad':
         setBad(prevState => prevState + 1);
         break;
-
       default:
         return;
     }
