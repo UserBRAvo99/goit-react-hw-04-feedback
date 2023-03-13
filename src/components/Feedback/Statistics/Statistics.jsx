@@ -2,7 +2,12 @@ import React from 'react';
 
 import scss from './statistics.module.scss';
 
-function Statistics({ good, neutral, bad, total, positiveFeedback }) {
+function Statistics({ good, neutral, bad }) {
+  let total = good + neutral + bad;
+
+  const countPositiveFeedbackPercentage = (good, total) => {
+    return `${Math.round((good * 100) / total)}%`;
+  };
   return (
     <ul className={scss.list}>
       <li className={scss.item}>
@@ -23,7 +28,7 @@ function Statistics({ good, neutral, bad, total, positiveFeedback }) {
       </li>
       <li className={scss.item}>
         <p className={scss.title}>Positive feedback</p>
-        <span>{positiveFeedback}</span>
+        <span>{countPositiveFeedbackPercentage(good, total)}</span>
       </li>
     </ul>
   );
