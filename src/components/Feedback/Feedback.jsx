@@ -16,20 +16,32 @@ export default function FeedbackHook() {
   const handleBtnClick = event => {
     const { name } = event.target;
 
-    if (name === 'good') {
-      setGood(state => state + 1);
-    } else if (name === 'neutral') {
-      setNeutral(state => state + 1);
-    } else if (name === 'bad') {
-      setBad(state => state + 1);
+    // if (name === 'good') {
+    //   setGood(state => state + 1);
+    // } else if (name === 'neutral') {
+    //   setNeutral(state => state + 1);
+    // } else if (name === 'bad') {
+    //   setBad(state => state + 1);
+    // }
+    switch (name) {
+      case 'good':
+        setGood(prevState => prevState + 1);
+        break;
+      case 'neutral':
+        setNeutral(prevState => prevState + 1);
+        break;
+      case 'bad':
+        setBad(prevState => prevState + 1);
+        break;
+
+      default:
+        return;
     }
   };
 
   useEffect(() => {
     totalFeedback(Number(good), Number(neutral), Number(bad));
   }, [good, neutral, bad]);
-
-  const options = ['good', 'neutral', 'bad'];
 
   const totalFeedback = (a, b, c) => {
     setTotal(state => a + b + c);
@@ -38,6 +50,8 @@ export default function FeedbackHook() {
   const countPositiveFeedbackPercentage = (a, b) => {
     return `${Math.round((a * 100) / b)}%`;
   };
+
+  const options = ['good', 'neutral', 'bad'];
 
   return (
     <div className={scss.wrapper}>
