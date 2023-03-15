@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useState } from 'react';
 
 import Statistics from './Statistics';
@@ -58,7 +58,12 @@ export default function FeedbackHook() {
       <h2 className={scss.title}>Statistics</h2>
 
       {good || neutral || bad ? (
-        <Statistics good={good} neutral={neutral} bad={bad} />
+        <Statistics
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          total={good + neutral + bad}
+        />
       ) : (
         <Notification message="There is no feedback"></Notification>
       )}
